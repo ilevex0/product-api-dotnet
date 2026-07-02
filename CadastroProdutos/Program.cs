@@ -162,3 +162,12 @@ public class Produto
     public int Estoque { get; set; }
 
 }
+
+public class Login
+{
+    [Required(ErrorMessage = "O campo usuário é obrigatório.")]
+    public string Usuario { get; set; }
+
+    [Required(ErrorMessage = "O campo senha é obrigatório.")]
+    public string Senha { get; set; }
+}
