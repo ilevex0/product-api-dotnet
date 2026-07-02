@@ -35,21 +35,34 @@ namespace CadastroProdutos.Controllers
         [HttpPost]
         public ActionResult Post(Produto novoProduto)
         {
-            produtosService.Adicionar(novoProduto);
-
-            return Created();
+            try
+            {
+                produtosService.Adicionar(novoProduto);
+                return Created();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
         [HttpPut("{id}")]
         public ActionResult<Produto> Put(int id, Produto produtoAtualizado)
         {
-            var produto = produtosService.Atualizar(id, produtoAtualizado);
-
-            if(produto is null)
+            try
             {
-                return NotFound($"Produto com id {id} não encontrado.");
-            }
+                var produto = produtosService.Atualizar(id, produtoAtualizado);
 
-            return Ok(produto);
+                if(produto is null)
+                {
+                    return NotFound($"Produto com id {id} não encontrado.");
+                }
+
+                return Ok(produto);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
