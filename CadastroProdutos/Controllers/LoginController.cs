@@ -4,6 +4,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
+using CadastroProdutos.Models;
 
 namespace CadastroProdutos.Controllers
 {
