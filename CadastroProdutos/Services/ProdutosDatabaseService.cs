@@ -1,6 +1,5 @@
 using System;
 using CadastroProdutos.Database;
-
 namespace CadastroProdutos.Services;
 
 public class ProdutosDatabaseService : IProdutosService
